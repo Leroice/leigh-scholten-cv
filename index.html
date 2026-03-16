@@ -365,7 +365,9 @@
 
       ctx.beginPath();
       ctx.arc(d.x, d.y, RADIUS, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(40,70,140,${d.alpha.toFixed(3)})`;
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const dotR = dark ? 140 : 40, dotG = dark ? 160 : 70, dotB = dark ? 230 : 140;
+      ctx.fillStyle = `rgba(${dotR},${dotG},${dotB},${d.alpha.toFixed(3)})`;
       ctx.fill();
     }
 
