@@ -275,7 +275,7 @@
   const RADIUS = 0.5;
 
   // Head — always distorts, constant size
-  const HEAD_RIPPLE = 120;
+  const HEAD_RIPPLE = 500;
   const HEAD_STRENGTH = 12;
 
   // Tail
@@ -314,11 +314,13 @@
     for(let d of dots){
       let totalFX = 0, totalFY = 0, maxAlpha = BASE_ALPHA;
 
-      // ── HEAD ── always distorts regardless of speed
+      // ── HEAD ── always distorts, ripple scales with velocity
       if(mouse.x !== -999){
+        const activeRipple = 120 + (HEAD_RIPPLE - 120) * velScale;
         const dx = mouse.x - d.ox, dy = mouse.y - d.oy;
         const dist = Math.sqrt(dx*dx+dy*dy);
-        const force = Math.max(0, 1 - dist/HEAD_RIPPLE);
+        const t = Math.max(0, 1 - dist/activeRipple);
+        const force = t * t * (3 - 2 * t);
         if(force > 0){
           const angle = Math.atan2(dy, dx);
           // Head always pushes — strength constant
