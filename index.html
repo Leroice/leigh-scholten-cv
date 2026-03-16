@@ -12,15 +12,17 @@
   @font-face { font-family: 'Roobert'; font-weight: 600; font-style: normal; src: url('fonts/Roobert-SemiBold.otf') format('opentype'); }
   @font-face { font-family: 'Roobert'; font-weight: 700; font-style: normal; src: url('fonts/Roobert-Bold.otf') format('opentype'); }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Roobert', 'Inter', 'Geist', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 2rem 4rem; color: #1a1a1a; background: #fff; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Roobert', 'Inter', 'Geist', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 680px; margin: 0 auto; padding: 0 2rem 4rem; color: #1a1a1a; background: #fff; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   .download-bar { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; margin-bottom: 2rem; border-bottom: 1px solid #e8e8e8; }
   .site-name { font-size: 13px; font-weight: 500; color: #1a1a1a; text-decoration: none; }
   .download-actions { display: flex; gap: 8px; }
-  .btn { display: inline-flex; align-items: center; gap: 5px; font-family: 'Roobert', 'Inter', 'Geist', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 400; text-decoration: none; padding: 6px 12px; border-radius: 5px; transition: all 0.15s; cursor: pointer; border: none; line-height: 1; }
+  .btn { display: inline-flex; align-items: center; gap: 5px; font-family: 'Roobert', 'Inter', 'Geist', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 400; text-decoration: none; padding: 6px 14px; border-radius: 9999px; transition: transform 0.6s cubic-bezier(0.23,1,0.32,1), border-color 0.15s, background 0.15s, color 0.15s; cursor: pointer; border: none; line-height: 1; transform-origin: center center; }
   .btn-ghost { color: #555; background: transparent; border: 1px solid #ddd; }
-  .btn-ghost:hover { color: #1a1a1a; border-color: #aaa; background: #f5f5f5; }
+  .btn-ghost:hover { color: #1a1a1a; border-color: #aaa; background: #f5f5f5; transform: scale(1.06) translateY(-1px); }
   .btn-solid { color: #fff; background: #1a1a1a; }
-  .btn-solid:hover { background: #333; }
+  .btn-solid:hover { background: #333; transform: scale(1.06) translateY(-1px); }
+  .btn-link { font-size: 11px; padding: 3px 10px; color: #555; background: transparent; border: 1px solid #ddd; border-radius: 9999px; text-decoration: none; display: inline-flex; align-items: center; transition: transform 0.6s cubic-bezier(0.23,1,0.32,1), border-color 0.15s, background 0.15s, color 0.15s; transform-origin: center center; }
+  .btn-link:hover { color: #1a1a1a; border-color: #aaa; background: #f5f5f5; transform: scale(1.06) translateY(-1px); }
   h1 { font-size: 28px; font-weight: 600; margin-bottom: 4px; }
   .contact { font-size: 13px; color: #666; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e0e0; }
   .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin: 2rem 0 0.75rem; }
@@ -39,17 +41,19 @@
   li { font-size: 14px; line-height: 1.8; color: #1a1a1a; margin-bottom: 2px; }
   .sub-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #bbb; margin: 0 0 12px; }
   .skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2rem; }
-  .skill { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ddd; color: #333; }
+  .skill { font-size: 12px; padding: 4px 10px 4px 8px; border-radius: 6px; border: 1px solid #ddd; color: #333; display: inline-flex; align-items: center; gap: 5px; }
+  .skill i { font-size: 14px; color: #999; flex-shrink: 0; }
   .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
   .edu-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
   .edu-sub { font-size: 13px; color: #666; margin-bottom: 2px; }
   .edu-detail { font-size: 12px; color: #888; }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/index.js"></script>
 </head>
 <body>
 
 <div class="download-bar">
-  <a class="site-name" href="https://leroice.com">leroice.com</a>
+  <a class="btn-link" href="https://leroice.com" target="_blank">leroice.com</a>
   <div class="download-actions">
     <a class="btn btn-ghost" href="Leigh_Scholten_CV.docx" download>
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M5 7l3 3 3-3M3 13h10"/></svg>
@@ -57,16 +61,16 @@
     </a>
     <a class="btn btn-solid" href="Leigh_Scholten_CV.pdf" download>
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M5 7l3 3 3-3M3 13h10"/></svg>
-      Download PDF
+      PDF
     </a>
   </div>
 </div>
 
   <h1>Leigh Scholten</h1>
-  <div class="contact">Melbourne, VIC, Australia &nbsp;|&nbsp; +61 429 800 084 &nbsp;|&nbsp; <a href="mailto:ls@leroice.com">ls@leroice.com</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/leroice" target="_blank">linkedin.com/in/leroice</a> &nbsp;|&nbsp; <a href="https://leroice.com" target="_blank">leroice.com</a></div>
+  <div class="contact">Melbourne, VIC, Australia &nbsp;|&nbsp; +61 429 800 084<br><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;"><a class="btn-link" href="mailto:ls@leroice.com">ls@leroice.com</a><a class="btn-link" href="https://linkedin.com/in/leroice" target="_blank">linkedin.com/in/leroice</a></div></div>
 
   <div class="section-label">Profile</div>
-  <p class="profile">Design Director and Lead UX Designer with 20+ years delivering high-impact digital products at enterprise scale. Deep expertise in fintech and financial services — from zero-to-one platform launches to multi-market design system convergence across global teams. Known for translating complex product strategy into intuitive, high-performing experiences, and for building and leading design organisations that ship fast without sacrificing craft. Currently driving the design program for a next-generation multicurrency digital wallet across AU and MX markets. Career spans fintech, enterprise SaaS, brand, retail, and physical product design — with a consistent thread of commercial impact, creative leadership, and work at scale.</p>
+  <p class="profile">Design Director and Lead UX Designer with over two decades delivering high-impact digital products at enterprise scale. Deep expertise in fintech and financial services — from zero-to-one platform launches to multi-market design system convergence across global teams. Known for translating complex product strategy into intuitive, high-performing experiences, and for building and leading design organisations that ship fast without sacrificing craft. Currently driving the design program for a next-generation multicurrency digital wallet across AU and MX markets. Career spans fintech, enterprise SaaS, brand, retail, and physical product design — with a consistent thread of commercial impact, creative leadership, and work at scale.</p>
   <hr>
 
   <div class="section-label">Selected Impact</div>
@@ -94,6 +98,7 @@
       <li>Operating as embedded design leadership within a cross-functional product, engineering, and PMO team; influencing roadmap priorities, sprint planning, and QA standards at the product director level.</li>
       <li>Leading design system strategy across market variants, resolving navigation, scroll behaviour, and component inconsistencies ahead of Friends &amp; Family release milestone.</li>
       <li>Mentoring and directing a distributed design team across AU and India spanning research, UX, and interaction design workstreams.</li>
+      <li>Leveraging Claude and AI-powered workflows across audit analysis, design documentation, stakeholder communications, and sprint planning — compressing work that would take days into hours.</li>
     </ul>
   </div>
 
@@ -107,7 +112,7 @@
     </ul>
   </div>
 
-  <div class="sub-label">Prior roles</div>
+  <div class="sub-label" style="margin-top:2.5rem;">Prior roles</div>
 
   <div class="role">
     <div class="role-header"><span class="role-title">Principal Designer / Design Director</span><span class="role-dates">Jun 2019 – 2025</span></div>
@@ -120,6 +125,7 @@
       <li>Directed AEM marketing site framework rollout, converting $480M in home loan customers via web channels in 6 months.</li>
       <li>Tested ANZ app under NDA with Apple prior to iPhone X release, enabling day-one hot-fixes for 4M+ customers.</li>
       <li>Mentored 15+ designers into senior and leadership roles, achieving a 3x higher promotion rate than the bank average.</li>
+      <li>Early adopter of LLMs in product design — used AI to expand search and discovery, prototyping a real-estate affordability experience that connected property search directly to live banking data.</li>
     </ul>
   </div>
 
@@ -187,20 +193,21 @@
 
   <div class="section-label">Core Skills</div>
   <div class="skills">
-    <span class="skill">Product Design (iOS / Android / Web)</span>
-    <span class="skill">Design Systems Strategy</span>
-    <span class="skill">Multi-market Design Convergence</span>
-    <span class="skill">Fintech / Financial Services</span>
-    <span class="skill">CX Strategy</span>
-    <span class="skill">Design Leadership &amp; Team Scaling</span>
-    <span class="skill">Rapid Prototyping</span>
-    <span class="skill">Stakeholder Management</span>
-    <span class="skill">Accessibility (WCAG 2.1)</span>
-    <span class="skill">Figma / Figma Systems Admin</span>
-    <span class="skill">Play / Swift Prototyping</span>
-    <span class="skill">AI-augmented Product Design</span>
-    <span class="skill">Brand &amp; Identity Design</span>
-    <span class="skill">Motion Design</span>
+    <span class="skill"><i class="ph-duotone ph-device-mobile"></i>Product Design (iOS / Android / Web)</span>
+    <span class="skill"><i class="ph-duotone ph-circles-four"></i>Design Systems Strategy</span>
+    <span class="skill"><i class="ph-duotone ph-globe"></i>Multi-market Design Convergence</span>
+    <span class="skill"><i class="ph-duotone ph-bank"></i>Fintech / Financial Services</span>
+    <span class="skill"><i class="ph-duotone ph-path"></i>CX Strategy</span>
+    <span class="skill"><i class="ph-duotone ph-users-three"></i>Design Leadership &amp; Team Scaling</span>
+    <span class="skill"><i class="ph-duotone ph-lightning"></i>Rapid Prototyping</span>
+    <span class="skill"><i class="ph-duotone ph-handshake"></i>Stakeholder Management</span>
+    <span class="skill"><i class="ph-duotone ph-eye"></i>Accessibility (WCAG 2.1)</span>
+    <span class="skill"><i class="ph-duotone ph-figma-logo"></i>Figma / Figma Systems Admin</span>
+    <span class="skill"><i class="ph-duotone ph-device-tablet"></i>Play / Swift Prototyping</span>
+    <span class="skill"><i class="ph-duotone ph-robot"></i>AI-augmented Product Design</span>
+    <span class="skill"><i class="ph-duotone ph-sparkle"></i>Claude / AI-powered Workflows</span>
+    <span class="skill"><i class="ph-duotone ph-paint-brush"></i>Brand &amp; Identity Design</span>
+    <span class="skill"><i class="ph-duotone ph-film-strip"></i>Motion Design</span>
   </div>
   <hr>
 
@@ -214,4 +221,171 @@
     <div>
       <div class="section-label">Awards</div>
       <div class="edu-title">Gold Cube — 81st ADCNY</div>
-      <div cla
+      <div class="edu-sub">Art Directors Club New York</div>
+      <div class="edu-detail">Art Direction &amp; Design · Interactive CD-ROM "Promotional Use Only" · 2001</div>
+    </div>
+  </div>
+
+<canvas id="grid" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  const canvas = document.getElementById('grid');
+  const ctx = canvas.getContext('2d');
+  let W, H, dots;
+
+  const SPACING = 18;
+  const RADIUS = 0.5;
+
+  // Head — always distorts, constant size
+  const HEAD_RIPPLE = 90;
+  const HEAD_STRENGTH = 10;
+
+  // Tail
+  const TAIL_LEN = 40;
+  const trail = [];
+
+  // Opacity
+  const BASE_ALPHA = 0.28;
+  const HEAD_ALPHA = 1.0;
+
+  let mouse = {x:-999, y:-999};
+  let velocity = 0;
+  let lastMouse = {x:-999, y:-999};
+  let lastTime = 0;
+
+  function init() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    dots = [];
+    for(let x = SPACING/2; x < W; x += SPACING)
+      for(let y = SPACING/2; y < H; y += SPACING)
+        dots.push({ox:x, oy:y, x:x, y:y, alpha: BASE_ALPHA});
+  }
+
+  function lerp(a,b,t){ return a+(b-a)*t; }
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+
+    // Velocity decays to zero when stopped — slow fade
+    velocity = lerp(velocity, 0, 0.035);
+    const velScale = Math.min(1, velocity / 280);
+
+    for(let d of dots){
+      let totalFX = 0, totalFY = 0, maxAlpha = BASE_ALPHA;
+
+      // ── HEAD ── always distorts regardless of speed
+      if(mouse.x !== -999){
+        const dx = mouse.x - d.ox, dy = mouse.y - d.oy;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        const force = Math.max(0, 1 - dist/HEAD_RIPPLE);
+        if(force > 0){
+          const angle = Math.atan2(dy, dx);
+          // Head always pushes — strength constant
+          totalFX -= Math.cos(angle) * force * HEAD_STRENGTH;
+          totalFY -= Math.sin(angle) * force * HEAD_STRENGTH;
+          // Head brightness scales with velocity
+          const a = BASE_ALPHA + (HEAD_ALPHA - BASE_ALPHA) * force * velScale;
+          maxAlpha = Math.max(maxAlpha, a);
+        }
+      }
+
+      // ── TAIL ── length, strength and brightness all scale with velocity
+      const activeTailCount = Math.ceil(trail.length * velScale);
+      const tailStart = trail.length - activeTailCount;
+
+      for(let i = tailStart; i < trail.length; i++){
+        const pt = trail[i];
+        // progress: 0 = oldest active tail point, 1 = newest (just behind head)
+        const progress = activeTailCount <= 1 ? 1 : (i - tailStart) / (activeTailCount - 1);
+        const taper = progress; // tapers toward zero at the tail end
+
+        const tailRipple  = HEAD_RIPPLE  * (0.25 + taper * 0.55);
+        const tailStrength = HEAD_STRENGTH * taper * 0.55 * velScale;
+        const tailAlphaPeak = HEAD_ALPHA   * taper * velScale;
+
+        const tdx = pt.x - d.ox, tdy = pt.y - d.oy;
+        const tdist = Math.sqrt(tdx*tdx+tdy*tdy);
+        const tforce = Math.max(0, 1 - tdist/tailRipple);
+        if(tforce > 0){
+          const angle = Math.atan2(tdy, tdx);
+          totalFX -= Math.cos(angle) * tforce * tailStrength;
+          totalFY -= Math.sin(angle) * tforce * tailStrength;
+          const a = BASE_ALPHA + (tailAlphaPeak - BASE_ALPHA) * tforce;
+          maxAlpha = Math.max(maxAlpha, a);
+        }
+      }
+
+      // Clamp
+      const mag = Math.sqrt(totalFX*totalFX+totalFY*totalFY);
+      const maxDisp = HEAD_STRENGTH * 1.6;
+      if(mag > maxDisp){ totalFX = totalFX/mag*maxDisp; totalFY = totalFY/mag*maxDisp; }
+
+      d.x = lerp(d.x, d.ox + totalFX, 0.12);
+      d.y = lerp(d.y, d.oy + totalFY, 0.12);
+      d.alpha = lerp(d.alpha, maxAlpha, 0.07);
+
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, RADIUS, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(40,70,140,${d.alpha.toFixed(3)})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('mousemove', e => {
+    const now = performance.now();
+    const dt = now - lastTime;
+    if(dt > 0 && lastMouse.x !== -999){
+      const dx = e.clientX - lastMouse.x;
+      const dy = e.clientY - lastMouse.y;
+      const speed = Math.sqrt(dx*dx+dy*dy) / dt * 1000;
+      velocity = lerp(velocity, speed, 0.3);
+    }
+    lastMouse = {x: e.clientX, y: e.clientY};
+    lastTime = now;
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    trail.push({x: e.clientX, y: e.clientY});
+    if(trail.length > TAIL_LEN) trail.shift();
+  });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.x = -999; mouse.y = -999;
+    trail.length = 0;
+    velocity = 0;
+  });
+
+  window.addEventListener('resize', init);
+
+  const page = document.querySelector('body');
+  [...page.children].forEach(el => {
+    if(el.id !== 'grid') el.style.position = 'relative', el.style.zIndex = '1';
+  });
+
+  init();
+  draw();
+})();
+</script>
+
+<div style="max-width:680px;margin:3rem auto 0;padding:1.5rem 0;border-top:1px solid #e8e8e8;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1;">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+    <a class="btn-link" href="https://leroice.com" target="_blank">leroice.com</a>
+    <a class="btn-link" href="mailto:ls@leroice.com">ls@leroice.com</a>
+    <a class="btn-link" href="https://linkedin.com/in/leroice" target="_blank">linkedin.com/in/leroice</a>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <a class="btn btn-ghost" href="Leigh_Scholten_CV.docx" download>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M5 7l3 3 3-3M3 13h10"/></svg>
+      Word
+    </a>
+    <a class="btn btn-solid" href="Leigh_Scholten_CV.pdf" download>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M5 7l3 3 3-3M3 13h10"/></svg>
+      PDF
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
