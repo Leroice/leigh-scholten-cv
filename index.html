@@ -275,17 +275,19 @@
   const RADIUS = 0.5;
 
   // Head — always distorts, constant size
-  const HEAD_RIPPLE = 90;
-  const HEAD_STRENGTH = 10;
+  const HEAD_RIPPLE = 120;
+  const HEAD_STRENGTH = 12;
 
   // Tail
-  const TAIL_LEN = 40;
+  const TAIL_LEN = 60;
   const trail = [];
 
   // Opacity
   const BASE_ALPHA = 0.28;
   const HEAD_ALPHA = 1.0;
 
+  let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => { isDark = e.matches; });
   let mouse = {x:-999, y:-999};
   let velocity = 0;
   let lastMouse = {x:-999, y:-999};
@@ -306,7 +308,7 @@
     ctx.clearRect(0,0,W,H);
 
     // Velocity decays to zero when stopped — slow fade
-    velocity = lerp(velocity, 0, 0.035);
+    velocity = lerp(velocity, 0, 0.06);
     const velScale = Math.min(1, velocity / 280);
 
     for(let d of dots){
@@ -359,14 +361,14 @@
       const maxDisp = HEAD_STRENGTH * 1.6;
       if(mag > maxDisp){ totalFX = totalFX/mag*maxDisp; totalFY = totalFY/mag*maxDisp; }
 
-      d.x = lerp(d.x, d.ox + totalFX, 0.12);
-      d.y = lerp(d.y, d.oy + totalFY, 0.12);
-      d.alpha = lerp(d.alpha, maxAlpha, 0.07);
+      d.x = lerp(d.x, d.ox + totalFX, 0.22);
+      d.y = lerp(d.y, d.oy + totalFY, 0.22);
+      d.alpha = lerp(d.alpha, maxAlpha, 0.09);
+
+      const dotR = isDark ? 140 : 40, dotG = isDark ? 160 : 70, dotB = isDark ? 230 : 140;
 
       ctx.beginPath();
       ctx.arc(d.x, d.y, RADIUS, 0, Math.PI*2);
-      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const dotR = dark ? 140 : 40, dotG = dark ? 160 : 70, dotB = dark ? 230 : 140;
       ctx.fillStyle = `rgba(${dotR},${dotG},${dotB},${d.alpha.toFixed(3)})`;
       ctx.fill();
     }
